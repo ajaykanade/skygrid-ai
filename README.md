@@ -1,5 +1,7 @@
 # SkyGrid AI
 
+_An AI-powered fault detection system for power transmission assets_
+
 ## Introduction
 
 SkyGrid AI a lightweight computer vision workflow for detecting rust and corrosion on power line components using UAV imagery. The goal is to support preventive maintenance for electrical infrastructure by helping identify deteriorated assets before they lead to outages, safety risks, or wildfire-related failures.
