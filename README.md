@@ -69,13 +69,17 @@ This makes the model easy to interpret in an inspection workflow and works well 
 
 The notebook evaluates the trained model with:
 
-- classification reports,
-- confusion matrices,
-- sample visual predictions.
+- Classification reports
+- Confusion matrices
+- Sample visual predictions
 
 This gives a practical view of the model’s behavior on real image content rather than only reporting one aggregate accuracy score.
 
+#### Confusion matrix:
+
 <img src="images/confusion-matrix.jpg" alt="Confusion matrix" width="500" />
+
+#### Classification report:
 
 | Class | Precision | Recall | F1-score | Support |
 | ----- | --------: | -----: | -------: | ------: |
