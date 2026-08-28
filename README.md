@@ -16,6 +16,15 @@ Power line inspection is expensive, time-consuming, and often difficult to scale
 
 InsPLAD was introduced to address this gap. The dataset includes high-resolution UAV images taken in real operating environments and captures multiple power line asset types along with different defect conditions. It supports several computer vision tasks, including object detection, defect classification, and anomaly detection.
 
+## Repository Contents
+
+Repository: https://github.com/ajaykanade/skygrid-ai.git
+
+- `README.md` — project overview, methodology, and setup instructions
+- `skygrid_ai.ipynb` — notebook with the complete data processing, model training, and evaluation workflow
+- `images/` — screenshots and example figures for the documentation
+- `yoke-suspension-data.zip` — packaged dataset used for training and validation
+
 ## Dataset
 
 I used the InsPLAD dataset for power line asset inspection which includes:
@@ -124,14 +133,6 @@ This project works best on Google Colab.
    - Click Runtime > Change runtime type, then select a T4 GPU, A100, or L4.
 
         <img src="images/gpu.jpg" alt="Change runtime" width="300" />
-
-## Repository Contents
-
-Repository: https://github.com/ajaykanade/skygrid-ai.git
-
-- `skygrid_ai.ipynb` — notebook with the complete data processing, model training, and evaluation workflow
-- `images/` — screenshots and example figures for the documentation
-- `yoke-suspension-data.zip` — packaged dataset used for training and validation
 
 ## Next steps
 
