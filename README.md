@@ -44,7 +44,7 @@ The emphasis is not only on training a model, but also on making the inspection 
 
 ### Dataset preparation
 
-The notebook unzips the packaged dataset, removes any stale workspace data, and constructs clean DataFrames by scanning the relevant class folders such as `good` and `rust`. This ensures the labels align with the supervised image classification problem.
+The notebook unzips the packaged dataset, removes any stale workspace data, and constructs clean DataFrames by scanning the relevant class folders such as `good` and `rust`. The dataset is organized into `train`, `val`, and `test` folders. The `train` and `val` sets are used for model training and validation, while the `test` set represents unseen data used to evaluate the final model performance on data it has not seen during training.
 
 ### Preprocessing
 
@@ -77,6 +77,13 @@ This gives a practical view of the model’s behavior on real image content rath
 
 <img src="images/confusion-matrix.jpg" alt="Confusion matrix" width="500" />
 
+| Class | Precision | Recall | F1-score | Support |
+| ----- | --------: | -----: | -------: | ------: |
+| Good  |      1.00 |   0.95 |     0.98 |    5742 |
+| Rust  |      0.05 |   0.65 |     0.09 |      20 |
+
+Note: I know that the recall rate of 65% for rust is not that great but it was not that bad either. I tried to use class weights to give more weight to rust images, but the scores did not improve significantly. I think "data augmentation" may help here (as listed in next steps)
+
 ## Example of model prediction on unseen data
 
 Once the model is trained, it can process a new image and automatically estimate whether the asset appears healthy or defective. In this project, the decision threshold is set at 0.5:
@@ -102,8 +109,8 @@ This project works best on Google Colab.
    - Open Google Colab.
    - Click "Upload notebook."
    - In the upload tab, browse and select `skygrid_ai.ipynb`.
-   - Once the notebook is loaded, click the folder icon and drag the `yoke-suspension-data.zip` file into this folder.
-   - After the "Data Extraction" cell is executed, the data will be extracted as shown below:
+   - Once the notebook is loaded, click the folder icon and drag the `yoke-suspension-data.zip` file into this folder. Note that this takes a while
+   - After the zip is fully uploaded (**after upload spinner is done**), executing the "Data Extraction" will extract the data as shown below:
 
         <img src="images/colab.jpg" alt="Google Colab upload example" width="400" />
 
@@ -124,11 +131,11 @@ Repository: https://github.com/ajaykanade/skygrid-ai.git
 
 Potential improvements for this project include:
 
-- Adding data augmentation to improve robustness,
-- Testing transfer learning with pretrained CNN backbones,
-- Exploring multiple defect categories beyond rust,
-- Evaluating anomaly detection methods on unseen patterns,
-- Extending the pipeline to object detection or segmentation in future iterations.
+- Exploring multiple defect categories beyond rust
+- Automatic object detection from full pictuers
+- Adding data augmentation like rotations & brightness to avoid false positives/negatives. One example is below. Looks like the shadow confused the model and image augmentation will help.
+
+    <img src="images/false-positive.jpg" alt="False positive for rust" width="300" />
 
 These next steps would move the project closer to real-world industrial inspection systems, where the goal is not just classification but actionable maintenance intelligence.
 
